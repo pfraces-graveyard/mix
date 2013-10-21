@@ -1,0 +1,14 @@
+{
+  "name": "inher",
+  "version": "0.1.0",
+  "description": "Simple object inheritance",
+  "main": "inher.js",
+  "dependencies": {},
+  "keywords": [
+    "extend",
+    "inherit",
+    "mixin"
+  ],
+  "author": "Pau Fracés <pfraces@gmail.com>",
+  "license": "MIT"
+}
