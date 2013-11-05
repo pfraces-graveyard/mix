@@ -1,9 +1,7 @@
 var inher = function (obj) {
-  var F = function () {
-    this.parent = obj;
-  };
-  
+  var F = function () {};
   F.prototype = obj;
+  F.prototype.parent = obj;
   return new F();
 };
 
