@@ -1,23 +1,38 @@
-# inher
+# mixem
 
-Simple object inheritance
+Simple object augmentation
 
 # Usage
 
+Any number of obhects can be passed.
+
+The first object will be augmented with the properties of the rest
+
 ```js
-var inher = require('inher');
+var mixem = require('mixem');
 
-var obj = inher({ a: 1 }, { a: 2 });
+var obj = mixem({ a: 1, b: 2 }, { a: 4, c: 3 });
+console.log(obj); // { a: 4, b: 2, c: 3 }
+```
 
-console.log(obj); // {}
-console.log(obj.parent); // { a: 2 }
-console.log(obj.parent.parent); // { a: 1 }
+Last wins
+
+```js
+var obj = mixem({ a: 1 }, { a: 2 }, { a: 3 });
+console.log(obj); // { a: 3 }
+```
+
+If you want to save the initial state of your object, you can pass an
+empty object first
+
+```js
+var obj = mixem({}, { a: 1, b: 2 }, { a: 4, c: 3 });
 ```
 
 # install
 
-    npm install inher
+    npm install mixem
 
 # Motivation
 
-Object augmentation library for simple tasks
+Simple, straightforward, dependency free oject augmentation library.
