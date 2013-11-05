@@ -1,8 +1,8 @@
 {
-  "name": "inher",
+  "name": "mixem",
   "version": "0.2.0",
-  "description": "Simple object inheritance",
-  "main": "inher.js",
+  "description": "Simple object augmentation",
+  "main": "mixem.js",
   "dependencies": {},
   "keywords": [
     "extend",
