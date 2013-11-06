@@ -1,18 +1,18 @@
 # mixem
 
-Simple object augmentation
+Mix objeect properties
 
 # Usage
 
-Any number of obhects can be passed.
+Any number of objects can be passed
 
-The first object will be augmented with the properties of the rest
+A new object is returned without altering the arguments received
 
 ```js
 var mixem = require('mixem');
 
-var obj = mixem({ a: 1, b: 2 }, { a: 4, c: 3 });
-console.log(obj); // { a: 4, b: 2, c: 3 }
+var obj = mixem({ a: 1 }, { b: 2, c: 3 }, { d: 4 });
+console.log(obj); // { a: 1, b: 2, c: 3, d: 4 }
 ```
 
 Last wins
@@ -22,11 +22,16 @@ var obj = mixem({ a: 1 }, { a: 2 }, { a: 3 });
 console.log(obj); // { a: 3 }
 ```
 
-If you want to save the initial state of your object, you can pass an
-empty object first
+Objects received are unaltered
 
 ```js
-var obj = mixem({}, { a: 1, b: 2 }, { a: 4, c: 3 });
+var foo = { a: 1, b: 2 },
+    bar = { a: 4, c: 3 },
+    foobar = mixem(foo, bar);
+
+console.log(foo); // { a: 1, b: 2 }
+console.log(bar); // { a: 4, c: 3 }
+console.log(mix); // { a: 4, b: 2, c: 3 }
 ```
 
 # install
@@ -35,4 +40,4 @@ var obj = mixem({}, { a: 1, b: 2 }, { a: 4, c: 3 });
 
 # Motivation
 
-Simple, straightforward, dependency free oject augmentation library.
+Straightforward oject mixing library, aimed for simple tasks.

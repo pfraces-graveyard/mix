@@ -8,15 +8,10 @@ var mixin = function (a, b) {
 
 var mixem = function () {
   var args = [].slice.apply(arguments),
-    target,
-    arg;
+    target = {};
 
-  while (arg = args.shift()) {
-    if (target)  {
-      mixin(target, arg);
-    } else {
-      target = arg;
-    }
+  while (var arg = args.shift()) {
+    mixin(target, arg);
   }
 
   return target;
