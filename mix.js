@@ -6,7 +6,7 @@ var mixin = function (a, b) {
   return a;
 };
 
-var mixem = function () {
+module.exports.mix = function () {
   var args = [].slice.apply(arguments),
     target = {};
 
@@ -16,5 +16,3 @@ var mixem = function () {
 
   return target;
 };
-
-module.exports = mixem;

@@ -1,9 +1,8 @@
 {
-  "name": "mixem",
+  "name": "u.mix",
   "version": "0.2.1",
-  "description": "Simple object augmentation",
-  "main": "mixem.js",
-  "dependencies": {},
+  "description": "Mix object properties",
+  "main": "mix.js",
   "keywords": [
     "extend",
     "inherit",
