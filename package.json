@@ -1,8 +1,11 @@
 {
   "name": "u.mix",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Mix object properties",
   "main": "mix.js",
+  "dependencies": {
+    "each": "*"
+  }
   "keywords": [
     "extend",
     "inherit",

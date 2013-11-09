@@ -1,7 +1,9 @@
+var each = require('u.each');
+
 var mixin = function (a, b) {
-  for (prop in b) {
-    a[prop] = b[prop];
-  };
+  each(b, function (item, index) {
+    a[index] = item;
+  });
 
   return a;
 };
