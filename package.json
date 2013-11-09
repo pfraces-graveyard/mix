@@ -5,7 +5,7 @@
   "main": "mix.js",
   "dependencies": {
     "each": "*"
-  }
+  },
   "keywords": [
     "extend",
     "inherit",
