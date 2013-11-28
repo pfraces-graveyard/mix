@@ -8,13 +8,20 @@ var mixin = function (a, b) {
   return a;
 };
 
-module.exports.mix = function () {
-  var args = [].slice.apply(arguments),
-    target = {};
+var Mix = function (sources) {
+  this.sources = sources;
+};
 
-  while (var arg = args.shift()) {
-    mixin(target, arg);
-  }
+Mix.prototype.in = function (target) {
+  target = target || {};
+
+  each(this.sources, function (source) {
+    mixin(target, source);
+  });
 
   return target;
+};
+
+module.exports = function () {
+  return new Mix([].slice.apply(arguments));
 };

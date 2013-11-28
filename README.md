@@ -4,22 +4,28 @@ Mix objeect properties
 
 # Usage
 
-Any number of objects can be passed
+```js
+mix(a, b, c).in(target);
+```
 
-A new object is returned without altering the arguments received
+Any number of objects can be passed to the constructor. The mix algorithm
+will not alter that source objects.
+
+The `in` method returns the resulting mixed object and accepts a target
+object to mix the sources in it. If no target is passed a new object is
+created for that purpose.
 
 ```js
 var mix = require('u.mix');
 
-var obj = mix({ a: 1 }, { b: 2, c: 3 }, { d: 4 });
-console.log(obj); // { a: 1, b: 2, c: 3, d: 4 }
+var fuz = mix({ a: 1 }, { b: 2, c: 3 }, { d: 4 }).in();
+console.log(fuz); // { a: 1, b: 2, c: 3, d: 4 }
 ```
-
 Last wins
 
 ```js
-var obj = mix({ a: 1 }, { a: 2 }, { a: 3 });
-console.log(obj); // { a: 3 }
+var fuz = mix({ a: 1 }, { a: 2 }, { a: 3 }).in();
+console.log(fuz); // { a: 3 }
 ```
 
 Objects received are unaltered
@@ -27,11 +33,25 @@ Objects received are unaltered
 ```js
 var foo = { a: 1, b: 2 },
     bar = { a: 4, c: 3 },
-    foobar = mix(foo, bar);
+    fuz = mix(foo, bar).in();
 
 console.log(foo); // { a: 1, b: 2 }
 console.log(bar); // { a: 4, c: 3 }
-console.log(mix); // { a: 4, b: 2, c: 3 }
+console.log(fuz); // { a: 4, b: 2, c: 3 }
+```
+
+Mix objects into a target object passed to `in()`
+
+```js
+var foo = { a: 1 },
+    bar = { a: 2 },
+    qux = { b: 3 },
+    fuz = mix(bar, qux).in(foo);
+
+console.log(foo);         // { a: 2, b: 3 }
+console.log(bar);         // { a: 2 }
+console.log(qux);         // { b: 3 }
+console.log(fuz === foo); // true
 ```
 
 # install
