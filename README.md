@@ -12,7 +12,7 @@ Any number of objects can be passed to the constructor. The mix algorithm
 will not alter that source objects.
 
 The `in` method returns the resulting mixed object and accepts a target
-object to mix the sources in it. If no target is passed a new object is
+to mix the sources in. If no target is passed a new object is
 created for that purpose.
 
 ```js
@@ -40,15 +40,15 @@ console.log(bar); // { a: 4, c: 3 }
 console.log(fuz); // { a: 4, b: 2, c: 3 }
 ```
 
-Mix objects into a target object passed to `in()`
+Mix into a target
 
 ```js
 var foo = { a: 1 },
-    bar = { a: 2 },
-    qux = { b: 3 },
+    bar = { b: 2 },
+    qux = { c: 3 },
     fuz = mix(bar, qux).in(foo);
 
-console.log(foo);         // { a: 2, b: 3 }
+console.log(foo);         // { a: 1, b: 2, c: 3 }
 console.log(bar);         // { a: 2 }
 console.log(qux);         // { b: 3 }
 console.log(fuz === foo); // true
